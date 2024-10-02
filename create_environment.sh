@@ -10,10 +10,14 @@ mkdir $base_dir/assets
 mkdir $base_dir/config
 
 touch "$base_dir/app/reminder.sh"
+chmod +x $base_dir/app/reminder.sh
 touch "$base_dir/modules/functions.sh"
+chmod +x $base_dir/modules/functions.sh
 touch "$base_dir/assets/submissions.txt"
 touch "$base_dir/config/config.env"
 touch "$base_dir/startup.sh"
+chmod +x $base_dir/startup.sh
+
 
 # inserting function.sh contents
 echo '#!/bin/bash
@@ -64,11 +68,16 @@ cp ./submissions.txt $base_dir/assets/submissions.txt
 
 cd $base_dir
 
-echo "Munezero, Shell Navigation, not submitted" >> assets/submissions.txt
-echo "Kelly, Shell Navigation, submitted" >> assets/submissions.txt
-echo "Prince, Shell Navigation, not submitted" >> assets/submissions.txt
-echo "Kevin, Shell Navigation, not submitted" >> assets/submissions.txt
-echo "Nickson, Shell Navigation, submitted" >> assets/submissions.txt
+# adding 5 more sudents
+echo "Munezero, Shell Navigation, not submitted
+Kelly, Shell Navigation, submitted
+Prince, Shell Navigation, not submitted
+Kevin, Shell Navigation, not submitted
+Nickson, Shell Navigation, submitted" > assets/submissions.txt
 
+# create the startub logic
+echo '#!/bin/bash
 
-echo "Woow, the files have been created"
+./app/reminder.sh' > ./startup.sh
+
+echo "Woow, Reminder Your Project is ready 🥳."
